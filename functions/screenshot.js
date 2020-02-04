@@ -1,21 +1,23 @@
 const puppeteer = require('puppeteer');
+var uuidv1 = require('uuid/v1');
 
 const screenshot = async (url) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
+  const fileName = `${uuidv1()}.png` 
 
   await page.setViewport({
     width: 1280,
     height: 800,
   });
-  // 'https://codesnacks.net/'
   await page.goto(url);
   await page.screenshot({
-    path: 'codesnacks.png',
+    path: fileName,
     fullPage: true,
   });
 
   await browser.close();
+  return fileName;
 };
 
-exports = screenshot;
+module.exports = screenshot;

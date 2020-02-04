@@ -1,0 +1,55 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "multi next-client-pages-loader?page=%2F_app&absolutePagePath=next%2Fdist%2Fpages%2F_app! node_modules/next/dist/client/router.js": 0
+    },
+    "usedIds": {
+      "0": 0
+    }
+  },
+  "chunks": {
+    "byName": {
+      "commons": 0,
+      "static/runtime/webpack.js": 1,
+      "framework": 2,
+      "eb771856a78b1255422bfc5f1856d3bdf46c9368": 3,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/_app.js": 4,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/_error.js": 5,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/dashboard.js": 6,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/index.js": 7,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/p/[id].js": 8,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/post.js": 9,
+      "static/runtime/main.js": 10,
+      "static/runtime/polyfills.js": 11,
+      "432012efb96614354e703c058a7f7c4590e870d8": 12,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/_app.js": 13,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/_error.js": 14,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/dashboard.js": 15,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/index.js": 16,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/p/[id].js": 17,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/post.js": 18,
+      "228634cc7eda0cf966a9fd50f4eff21be9fe70ef": 3,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/_app.js": 4,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/_error.js": 5,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/dashboard.js": 6,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/index.js": 7,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/p/[id].js": 8,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/post.js": 9
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      10,
+      11,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+}

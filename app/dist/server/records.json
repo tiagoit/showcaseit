@@ -1,0 +1,67 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "multi private-next-pages/api/randomQuote.js": 0,
+      "multi private-next-pages/dashboard.jsx": 1,
+      "multi private-next-pages/index.jsx": 2,
+      "multi private-next-pages/p/[id].jsx": 3,
+      "multi private-next-pages/post.jsx": 4,
+      "multi next/dist/pages/_app": 5,
+      "multi next/dist/pages/_error": 6,
+      "multi next/dist/pages/_document": 7
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7
+    }
+  },
+  "chunks": {
+    "byName": {
+      "init-server.js": 0,
+      "on-error-server.js": 1,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/_app.js": 2,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/_document.js": 3,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/_error.js": 4,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/api/randomQuote.js": 5,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/dashboard.js": 6,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/index.js": 7,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/p/[id].js": 8,
+      "static/mcr0_ZtN3g4RbJxGDJEaF/pages/post.js": 9,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/_app.js": 10,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/_document.js": 11,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/_error.js": 12,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/api/randomQuote.js": 13,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/dashboard.js": 14,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/index.js": 15,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/p/[id].js": 16,
+      "static/9ktJZFDjoFeTUpbKyYYRJ/pages/post.js": 17,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/_app.js": 2,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/_document.js": 3,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/_error.js": 4,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/api/randomQuote.js": 5,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/dashboard.js": 6,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/index.js": 7,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/p/[id].js": 8,
+      "static/0bFAICh0thf2BIIQ8ouKU/pages/post.js": 9
+    },
+    "bySource": {},
+    "usedIds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+}
