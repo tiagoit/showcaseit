@@ -1,0 +1,36 @@
+{
+  "name": "Semantic HTML Viewer",
+  "version": "0.0.2",
+  "description": "Chrome extension to reveal the usage of semantic HTML tags on any website.",
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "36": "images/android-icon-36x36.png",
+      "48": "images/android-icon-48x48.png",
+      "72": "images/android-icon-72x72.png",
+      "96": "images/android-icon-96x96.png",
+      "144": "images/android-icon-144x144.png",
+      "192": "images/android-icon-192x192.png"
+    }
+  },
+  "icons": {
+    "36": "images/android-icon-36x36.png",
+    "48": "images/android-icon-48x48.png",
+    "72": "images/android-icon-72x72.png",
+    "96": "images/android-icon-96x96.png",
+    "144": "images/android-icon-144x144.png",
+    "192": "images/android-icon-192x192.png"
+  },
+  "manifest_version": 2
+}

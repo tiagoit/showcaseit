@@ -1,0 +1,24 @@
+{
+  "name": "showcaseit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiagoit/showcaseit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiagoit/showcaseit/issues"
+  },
+  "homepage": "https://github.com/tiagoit/showcaseit#readme",
+  "dependencies": {
+    "instauto": "^7.1.1",
+    "puppeteer": "^8.0.0"
+  }
+}
