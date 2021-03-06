@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": "Getting Started Example",
+  "description": "Build an Extension!",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "storage",
+    "identity"
+  ],
+  "browser_action": {
+    "default_icon": "images/firebase.png",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "page": "background.html"
+  },
+  "icons": {
+    "16": "/images/get_started16.png",
+    "32": "/images/get_started32.png",
+    "48": "/images/get_started48.png",
+    "128": "/images/get_started128.png"
+  },
+    "content_security_policy":"script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
+    "oauth2": {
+      "client_id": "251163997683-jt17qcqu41ohpkkhcl1dufp8uc4n4eqf.apps.googleusercontent.com",
+      "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email",
+        "https://www.googleapis.com/auth/userinfo.profile"
+      ]
+    },
+    "key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAitzUH8BEl54pvRfsSU/x\n+lkC/SMqSgjZQo3SRRIwRgoHu2Kq35W1CdglXmpU4CNm6Z1Z6WelJv3wdQVuSJbi\nH5JcHPBx8F1bcTozqbddgmHnmTnTS5P18S1VatYwfGjGKgJhx0wTLW8ZXVV4/KIe\nMWpHi4aSIeO+kj+6hWlLCIEnHR9LLpsRX3WbO6dEI91/LKug/TRnnHwfNlah+6ny\nlS/CqJiadg8+KBIahfjIX12oYcBz2iqIWoJmFQHsCADi0uYsSvVCOYZg+WkOhjqk\nRvqrkDJbcaV8wz/lbB276gGKC085pSx3gMrroI6ePEzlhCxaiZJcPG+rhF66nGtC\n7QIDAQAB\n-----END PUBLIC KEY-----\n"
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body class="m-2">
+    <button id="changeColor" type="button" class="btn btn-sm btn-outline-primary d-none">Primary</button>
+    
+    <h3 class="mb-4">InstaMatcher</h3>
+    
+    <div id="view-signin">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Email" aria-label="Email" id="input-email">
+      </div>
+
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" placeholder="Password" aria-label="password" id="input-password">
+      </div>
+
+      <button id="btn-signin" type="button" class="btn btn-sm btn-outline-primary w-75 d-block mx-auto">SignIn</button>
+    </div>
+    
+    
+    <div id="view-logout" class="invisible">
+      <button id="btn-logout" type="button" class="btn btn-sm btn-outline-primary">Logout</button>
+    </div>
+    
+    <script src="index.js"></script>
+  </body>
+</html>
