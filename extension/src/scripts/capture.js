@@ -3,6 +3,7 @@ let profileId = null;
 let fetchingProfileData = false;
 let observer1 = null;
 let observer2 = null;
+
 const sleep = (ms) => (new Promise(resolve => setTimeout(resolve, ms)));
 const innerHTML = (node) => (node ? node.innerHTML : null);
 const observeDOM = (function() {
@@ -22,20 +23,6 @@ const observeDOM = (function() {
   }
 })();
 
-const coords = {}
-const getUserLocation = () => {
-  var options = { enableHighAccuracy: false, timeout: 25000, maximumAge: Infinity };
-
-  const success = (pos) => {
-    coords.lat = pos.coords.latitude;
-    coords.lon = pos.coords.longitude;
-    console.log('User location ok.', pos.coords.latitude);
-  };
-  
-  const error = (err) => { console.warn('ERROR(' + err.code + '): ' + err.message); };
-
-  navigator.geolocation.getCurrentPosition(success, error, options);
-};
 
 const fetchProfileData = async () => {
   await sleep(2000);
@@ -58,7 +45,7 @@ const fetchProfileData = async () => {
   let distance = otherData.find(s => s.includes('quilômetro'));
   if(distance) {
     distance = +(distance.split(' ').find(s => Number.isInteger(+s)));
-    data.location = { distance, userLoc: coords };
+    data.location = { distance }; // , userLoc: coords
   }
 
   // Media
@@ -76,12 +63,13 @@ const fetchProfileData = async () => {
   data.media = Array.from(photos);
 
   console.log({ data })
-  add(data)
+  // store(data)
   fetchingProfileData = false;
   refreshObservers();
+  return data;
 };
 
-const run = async (m) => {
+const startCapturing = async (m) => {
   refreshObservers();
   if (fetchingProfileData) return;
 
@@ -99,7 +87,7 @@ const run = async (m) => {
     console.log('New profile, make your magic!');
     profileId = currentPageProfileId;
     try {
-      if(!fetchingProfileData) await fetchProfileData();
+      if(!fetchingProfileData) return (await fetchProfileData());
     } catch(e) {
       console.log('Error fetching data: ', e);
       fetchingProfileData = false;
@@ -111,58 +99,17 @@ const refreshObservers = () => {
   if(observer1) observer1.disconnect();
   if(observer2) observer2.disconnect();
 
-  observer1 = observeDOM(document.querySelector('div[class~="recsCardboard__cards"]'), run);
-  observer2 = observeDOM(document.querySelector('div[class~="profileCard__slider"]'), run);
+  observer1 = observeDOM(document.querySelector('div[class~="recsCardboard__cards"]'), startCapturing);
+  observer2 = observeDOM(document.querySelector('div[class~="profileCard__slider"]'), startCapturing);
 }
 
-run();
-getUserLocation();
-
-
-
-
-let auth = null;
-const loadScript = async (url) => {
-  const script = document.createElement('script');
-  script.src = url;
-  document.head.appendChild(script);
-  await sleep(1000);
+const pauseCapturing = () => {
+  if(observer1) observer1.disconnect();
+  if(observer2) observer2.disconnect();
 }
-const firebaseConfig = {
-  apiKey: 'AIzaSyComtuLGFguBD1bwsKjIVHWEHI2T_b_RGk',
-  authDomain: 'instamatcher.firebaseapp.com',
-  projectId: 'instamatcher',
-  storageBucket: 'instamatcher.appspot.com',
-  messagingSenderId: '251163997683',
-  appId: '1:251163997683:web:ebe3b6d29bd9105a034e86',
-  measurementId: 'G-39GB92H91C'
-};
-const register = async (email, password) => {
-  try {
-    auth = await firebase.auth().createUserWithEmailAndPassword(email, password);
-    console.log('New user', {auth})
-  } catch(error) { console.log({ code: error.code, message: error.message }) };
-}
-const login = async (email, password) => {
-  try {
-    auth = await firebase.auth().signInWithEmailAndPassword(email, password);
-    console.log('Logged in: ', {auth});
-  } catch(error) { console.log({ code: error.code, message: error.message }) };
-}
-const add = (data) => {
-  console.log({uid: auth.user.uid});
-  firebase.firestore().collection('profiles').doc(auth.user.uid).update({ [data.profileId]: data });
-}
-// Initialize Firebase
-(async () => {
-  await loadScript('https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js');
-  await loadScript('https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js');
-  await loadScript('https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js');
-  console.log({firebase});
-  if(firebase) await firebase.initializeApp(firebaseConfig);
-  else console.log('error initializing firebase');
 
-  // register('tiferreira12@gmail.com', '123123');
-  await login('tiferreira12@gmail.com', '123123');
-})()
 
+new Promise(async (resolve, reject) => {
+  await startCapturing();
+  resolve('ok') ;
+})

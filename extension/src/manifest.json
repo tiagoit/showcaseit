@@ -7,7 +7,9 @@
     "activeTab",
     "declarativeContent",
     "storage",
-    "identity"
+    "identity",
+    "geolocation",
+    "tabs"
   ],
   "browser_action": {
     "default_icon": "images/firebase.png",
