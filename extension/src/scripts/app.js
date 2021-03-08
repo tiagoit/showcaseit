@@ -1,10 +1,5 @@
 firebase.initializeApp(firebaseConfig);
 
-window.onload = function() {
-  initApp();
-  getUserLocation();
-};
-
 const coords = {}
 const getUserLocation = () => {
   var options = { enableHighAccuracy: false, timeout: 25000, maximumAge: Infinity };
@@ -20,39 +15,33 @@ const getUserLocation = () => {
   navigator.geolocation.getCurrentPosition(success, error, options);
 };
 
-
-let isCapturing = false;
-
 document.getElementById('btn-capture').addEventListener('click', async () => {
-  if(isCapturing) {
-    document.getElementById('btn-capture').textContent = 'Pause capturing';
-    // let [tab] = await chrome.tabs.query({ url: '*tinder*' });
-    // chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    //   chrome.tabs.executeScript(
-    //     tabs[0].id,
-    //     { file: 'semantic-viewer.js' });
-    // });
+  console.log('click: btn-capture');
+  // Inject Main script
+  chrome.tabs.query({currentWindow: true, url: '*://tinder.com/*'}, tabs => {
+    tabs.forEach(tab => chrome.tabs.executeScript(tab.id, { file: 'scripts/capture.js' }));
+  });
+});
 
-    
-
-    // startCapturing();
-  } else {
-    document.getElementById('btn-capture').textContent = 'Start capturing';
-    // pauseCapturing();
-    console.log('start');
-    chrome.tabs.query({currentWindow: true, url: '*://tinder.com/*'}, function(result) {
-      result.forEach(function(tab) {
-        console.log({tab});
-        chrome.tabs.executeScript(
-          tab.id,
-          { file: 'scripts/capture.js' },
-          result => {
-            console.log({result});
+document.getElementById('btn-fetch-profiles').addEventListener('click', async () => {
+  console.log('click: btn-fetch-profiles');
+  chrome.tabs.query({currentWindow: true, url: '*://tinder.com/*'}, tabs => {
+    tabs.forEach(tab => {
+      chrome.tabs.executeScript(tab.id, { file: 'scripts/profiles-fetcher.js' }, async result => {
+        console.log('captured')
+        console.log({result}, {firebase});
+        for(let profileId of Object.keys(result[0])) {
+          if(result[0][profileId].location) {
+            result[0][profileId].location.userLoc = coords;
           }
-        );
+          store(result[0][profileId])
+        }
       });
     });
-  }
-
-  isCapturing = !isCapturing;
+  });
 });
+
+window.onload = function() {
+  initApp();
+  getUserLocation();
+};

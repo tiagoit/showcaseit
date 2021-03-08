@@ -70,5 +70,5 @@ function startSignIn() {
 
 const store = (data) => {
   console.log({uid: user.uid});
-  firebase.firestore().collection('profiles').doc(auth.user.uid).update({ [data.profileId]: data });
+  firebase.firestore().collection('profiles').doc(user.uid).update({ [data.profileId]: data });
 }
